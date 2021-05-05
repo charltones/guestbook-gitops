@@ -28,13 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Prep
+      uses: chrislennon/action-aws-cli@v1.1
+
     - name: Checkout
       uses: actions/checkout@master
 
     # Add steps here like linting, testing, minification, etc.
       
     - name: Setup ECR
-      uses: chrislennon/action-aws-cli@v1.1
       run: |
         # Login to AWS ECR
         $( aws ecr get-login --no-include-email )
